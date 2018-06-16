@@ -10,6 +10,6 @@ var app = angular.module('FinanceTrackerApp',[])
                 }
             } else {
                 $scope.stock = {};
-            });
+            }
         }
 }]);
