@@ -4,6 +4,7 @@ class StocksController < ApplicationController
         @stock ||= Stock.new_from_lookup(params[:stock])
       end
       if @stock
+          @stock.can_be_added = current_user.can_add_stock?(@stock.ticker)
         render json: @stock
       else
         render status: 404, json: { response: 'No stock exists for this symbol.' }
